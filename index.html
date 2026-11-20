@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Trascrivi un file audio e scarica il testo.">
+  <title>MP3reading</title>
+  <link rel="icon" href="./logo.png" type="image/png">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./web.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="./logo.png" alt="" width="72" height="72">
+      <div><h1>MP3reading</h1><p>Trascrivi un file audio direttamente nel browser.</p></div>
+    </header>
+    <section aria-labelledby="audio-heading">
+      <h2 id="audio-heading">File audio</h2>
+      <form id="form">
+        <div class="fields">
+          <div><label for="audio">Registrazione</label><input id="audio" type="file" accept="audio/*,.mp3,.wav,.m4a,.ogg,.flac,.opus,.aac" required></div>
+          <div><label for="language">Lingua</label><select id="language"><option value="italian">Italiano</option><option value="english">Inglese</option><option value="">Automatica</option></select></div>
+        </div>
+        <button id="transcribe" type="submit">Trascrivi</button>
+      </form>
+      <progress id="progress" aria-label="Trascrizione in corso" hidden></progress>
+      <p id="status" role="status"></p>
+      <p class="hint">Al primo utilizzo il browser scarica circa 90 MB. L’audio viene elaborato sul dispositivo.</p>
+    </section>
+    <section aria-labelledby="output-heading">
+      <h2 id="output-heading">Trascrizione</h2>
+      <textarea id="output" aria-labelledby="output-heading" rows="10" placeholder="Qui comparirà la trascrizione. Potrai correggerla prima di salvarla."></textarea>
+      <div class="output-actions">
+        <button id="copy" type="button" disabled>Copia testo</button>
+        <button id="save" type="button" disabled>Scarica TXT</button>
+        <span id="export-status" role="status"></span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
